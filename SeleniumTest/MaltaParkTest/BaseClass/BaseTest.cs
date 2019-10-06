@@ -13,7 +13,7 @@ namespace MaltaParkTest.BaseClass
     {
         public IWebDriver chromeDriver;
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Open()
         {
             chromeDriver = new ChromeDriver();
@@ -21,7 +21,7 @@ namespace MaltaParkTest.BaseClass
             chromeDriver.Url = "https://www.maltapark.com/signup";
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void Close()
         {
             chromeDriver.Quit();

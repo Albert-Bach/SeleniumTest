@@ -10,7 +10,7 @@ namespace MaltaParkTest
     [TestFixture]
     public class TestClass : BaseTest
     {
-        [Test]
+        [Test,Category("Smoke Testing")]
         public void TestNameField()
         {
             

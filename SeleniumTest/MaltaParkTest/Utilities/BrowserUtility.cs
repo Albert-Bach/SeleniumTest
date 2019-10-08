@@ -5,12 +5,12 @@ namespace MaltaParkTest.Utilities
 {
     public class BrowserUtility
     {
-        public IWebDriver Init(IWebDriver chrome)
+        public IWebDriver Init(IWebDriver driver)
         {
-            chrome = new ChromeDriver();
-            chrome.Manage().Window.Maximize();
-            chrome.Url = "https://www.maltapark.com/signup";
-            return chrome;
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Url = "https://www.maltapark.com/signup";
+            return driver;
         }
     }
 }

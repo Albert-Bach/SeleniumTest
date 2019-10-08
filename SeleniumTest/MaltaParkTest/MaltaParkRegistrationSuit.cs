@@ -8,7 +8,7 @@ using MaltaParkTest.BaseClass;
 namespace MaltaParkTest
 {
     [TestFixture]
-    public class TestClass : BaseTest
+    public class MaltaParkRegistrationSuit : BaseTest
     {
         [Test,Category("Smoke Testing")]
         public void TestNameField()

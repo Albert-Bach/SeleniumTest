@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using MaltaParkTest.BaseClass;
 using MaltaParkTest.Utilities;
 
 namespace MaltaParkTest
@@ -11,19 +7,44 @@ namespace MaltaParkTest
     [TestFixture]
     public class ParallelTesting
     {
-        IWebDriver chrome;
+        IWebDriver driver;
 
-        [Test, Category("UAT Testing"), Category("Module")]
-        public void TestMethod1()
+        [Test,Category("UAT Testing"),Category("Module")]
+        public void TestNameFieldWithProperName()
         {
-            var Chrome = new BrowserUtility().Init(chrome);
-            IWebElement nameField = chrome.FindElement(By.CssSelector("#Name"));
+            var chromeDriver = new BrowserUtility().Init(driver);
+            IWebElement nameField = chromeDriver.FindElement(By.CssSelector("#Name"));
             nameField.SendKeys("Albert Bach");
-            Chrome.Close();
+            chromeDriver.Close();
          
         }
 
+        [Test, Category("UAT Testing"), Category("Module")]
+        public void TestNameFieldEmpty()
+        {
+            var chromeDriver = new BrowserUtility().Init(driver);
+            IWebElement nameField = chromeDriver.FindElement(By.CssSelector("#Name"));
+            nameField.SendKeys("");
+            chromeDriver.Close();
 
+        }
 
+        [Test, Category("UAT Testing"), Category("Module")]
+        public void TestNameFieldNumber()
+        {
+            var chromeDriver = new BrowserUtility().Init(driver);
+            IWebElement nameField = chromeDriver.FindElement(By.CssSelector("#Name"));
+            nameField.SendKeys("01234");
+            chromeDriver.Close();
+        }
+
+        [Test, Category("UAT Testing"), Category("Module")]
+        public void TestNameFieldChars()
+        {
+            var chromeDriver = new BrowserUtility().Init(driver);
+            IWebElement nameField = chromeDriver.FindElement(By.CssSelector("#Name"));
+            nameField.SendKeys("*/-+\'[");
+            chromeDriver.Close();
+        }
     }
 }

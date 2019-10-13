@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using MaltaParkTest.Utilities;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System;
 
 namespace MaltaParkTest
 {
@@ -27,10 +28,11 @@ namespace MaltaParkTest
             telephoneField.SendKeys("1111111");
             IWebElement element = chromeDriver.FindElement(By.CssSelector(".ui.fluid.large.primary.submit.button"));
             element.Click();
-            IWebElement errorMessage = chromeDriver.FindElement(By.CssSelector(".list > li:nth-child(1)"));
+            var errorMessage = chromeDriver.FindElement(By.CssSelector(".list > li:nth-child(1)")).Text;
+         
 
             Assert.AreEqual("The Name field is required.", errorMessage);
-            
+
             chromeDriver.Close();
 
         }

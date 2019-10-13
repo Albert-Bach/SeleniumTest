@@ -37,5 +37,5 @@ using NUnit.Framework;
 
 [assembly: Parallelizable(ParallelScope.Children)]
 
-[assembly: LevelOfParallelism(4)]
+[assembly: LevelOfParallelism(1)]
 
